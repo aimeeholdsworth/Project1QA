@@ -1,37 +1,62 @@
 package rest;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.example.projectqa.Gig;
+import domain.Gig;
+import services.GigService;
 
+@RestController 
 public class GigController {
-	private List<domain.Gig> gigs = new ArrayList<>();
-
-	@PostMapping("/create")
-	public void create(@RequestBody domain.Gig gig) {
-		this.gigs.add(gig);
+	
+	private GigService service;
+	
+	public GigController(GigService service) {
+		super();
+		this.service = service;
 	}
-
+	
+	//create functionality
+	@PostMapping("/createGig")
+	public ResponseEntity<Gig> addGig(@RequestBody Gig gig) {
+		return new ResponseEntity<Gig>(this.service.addGig(gig), HttpStatus.CREATED);
+	}
+	
+	
+	//get all the gigs (read)
 	@GetMapping("/getAllGigs")
-	public List<domain.Gig> getGig() {
-		return this.gigs;
+	public ResponseEntity <List<Gig>> getAllGigs(){
+		return ResponseEntity.ok(this.service.getAllGigs());
 	}
-
-	@GetMapping("/getGig/{id}")
-	public domain.Gig getGigById(@PathVariable int id) {
-		return this.gigs.get(id);
+	
+	//get a gig by it's artist name
+	@GetMapping("getGigByArtist/{artist}")
+	public Gig getGigByArtist(@PathVariable String artist) {
+		return this.service.getGigByArtist(artist);
 	}
+	
 
+	
+	@PutMapping("/update/{id}")
+	public Gig updateGig(@PathVariable("id") Long id, @RequestBody Gig gig){
+		return this.service.updateGig(id, gig);
+	}
+	
 	@DeleteMapping("/delete/{id}")
-	public domain.Gig removeGig(@PathVariable int id) {
-		return this.gigs.remove(id);
+	public boolean removeGig(@PathVariable Long id) {
+		return this.service.removeGig(id);
 	}
+	
+	
+	
 
 }
