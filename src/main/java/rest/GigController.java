@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.firstproject.Pug;
-
 import domain.Gig;
 import services.GigService;
 
@@ -29,15 +27,15 @@ public class GigController {
 	
 	//create functionality
 	@PostMapping("/createGig")
-	public Gig addGig(@RequestBody Gig gig) {
-        return this.service.addGig(gig);
+	public ResponseEntity<Gig> addGig(@RequestBody Gig gig) {
+		return new ResponseEntity<Gig>(this.service.addGig(gig), HttpStatus.CREATED);
 	}
 	
 	
 	//get all the gigs (read)
 	@GetMapping("/getAllGigs")
-	public List<Gig> getAllGigs(){
-		   return this.service.getAllGigs();
+	public ResponseEntity <List<Gig>> getAllGigs(){
+		return ResponseEntity.ok(this.service.getAllGigs());
 	}
 	
 	//get a gig by it's artist name
