@@ -1,4 +1,4 @@
-package com.example.projectqa;
+package domain;
 
 import java.sql.Date;
 
