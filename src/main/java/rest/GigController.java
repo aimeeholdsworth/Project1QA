@@ -12,25 +12,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.example.projectqa.Gig;
 
 public class GigController {
-	private List<Gig> gigs = new ArrayList<>();
+	private List<domain.Gig> gigs = new ArrayList<>();
 
 	@PostMapping("/create")
-	public void create(@RequestBody Gig gig) {
+	public void create(@RequestBody domain.Gig gig) {
 		this.gigs.add(gig);
 	}
 
 	@GetMapping("/getAllGigs")
-	public List<Gig> getGig() {
+	public List<domain.Gig> getGig() {
 		return this.gigs;
 	}
 
 	@GetMapping("/getGig/{id}")
-	public Gig getGigById(@PathVariable int id) {
+	public domain.Gig getGigById(@PathVariable int id) {
 		return this.gigs.get(id);
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public Gig removeGig(@PathVariable int id) {
+	public domain.Gig removeGig(@PathVariable int id) {
 		return this.gigs.remove(id);
 	}
 

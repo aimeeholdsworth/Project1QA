@@ -1,4 +1,4 @@
-package com.example.projectqa;
+package repo;
 
 public class GigRepo {
 
