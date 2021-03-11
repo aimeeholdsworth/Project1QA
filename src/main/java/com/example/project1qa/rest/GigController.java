@@ -1,4 +1,4 @@
-package rest;
+package com.example.project1qa.rest;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import domain.Gig;
-import services.GigService;
+import com.example.project1qa.domain.Gig;
+import com.example.project1qa.services.GigService;
 
 @RestController 
 public class GigController {

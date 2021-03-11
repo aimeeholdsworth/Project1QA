@@ -1,12 +1,12 @@
-package services;
+package com.example.project1qa.services;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import domain.Gig;
-import repo.GigRepo;
+import com.example.project1qa.domain.Gig;
+import com.example.project1qa.repo.GigRepo;
 
 
 @Service

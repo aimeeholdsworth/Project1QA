@@ -1,9 +1,9 @@
-package repo;
+package com.example.project1qa.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import domain.Gig;
+import com.example.project1qa.domain.Gig;
 
 @Repository
 public interface GigRepo extends JpaRepository<Gig, Long>{
