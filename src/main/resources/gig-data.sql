@@ -1,0 +1,1 @@
+INSERT INTO `gig` (`artist`, `city`, `venue`, `gigDate`, `gigTime`) VALUE ('Sea Girls', 'Bristol', 'Fleece', '2021-08-12', '7');

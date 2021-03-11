@@ -52,7 +52,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 		@Test
 		void testCreate() throws Exception{
 			//creates a gig
+
 			Gig newGig = new Gig("1975", "Bristol", "Fleece", "2021-08-12", 7);
+
 			
 			String newGigAsJSON = this.mapper.writeValueAsString(newGig);
 			
@@ -61,7 +63,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 			
 			
 			//creates saved gigs
+
 			Gig savedGig = new Gig(1L, "1975", "Bristol", "Fleece", "2021-08-12", 7);
+
 			String savedGigAsJSON = this.mapper.writeValueAsString(savedGig);
 			
 			
@@ -76,7 +80,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 		//read test
 		@Test
 		void readTest() throws Exception{
+
 			Gig testGig = new Gig(1L, "1975", "Bristol", "Fleece", "2021-08-12", 7);
+
 			Gig.add(testGig);
 			
 			String testGigAsJSON = this.mapper.writeValueAsString(Gig);
@@ -93,7 +99,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 			@Test
 			void updateTest() throws Exception{
 				
+
 						Gig newGig = new Gig("1975", "Bristol", "Fleece", "2021-08-12", 7);
+
 						
 						//convert it to a json string
 						String newGigAsJSON = this.mapper.writeValueAsString(newGig);
@@ -105,7 +113,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 						
 						
 						
+
 						Gig savedGig = new Gig(1L, "1975", "Bristol", "Fleece", "2021-08-12", 7);
+
 						
 						String savedGigAsJSON = this.mapper.writeValueAsString(savedGig);
 						
